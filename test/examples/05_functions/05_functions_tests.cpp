@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "void.h"
 #include "reference.h"
+#include "default.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -21,4 +22,11 @@ TEST_CASE("Test that reference parameters modify original variable")
 	reference_parameter(num);
 
 	REQUIRE(num == 100);
+}
+
+TEST_CASE("Test weekly pay with two parameters")
+{
+	int num = 40;
+	REQUIRE(get_weekly_pay(num, 10) == 400);
+	REQUIRE(get_weekly_pay(52000) == 1000);
 }
