@@ -6,7 +6,7 @@ using std::cout;
 int main() 
 {
 	int num = 10;
-	string result = menu(num);
-
+	std::string result = menu(num);
+	cout<<result<<"\n";
 	return 0;
 }
