@@ -41,6 +41,10 @@ public:
     virtual void withdraw(int amount) final;
     static int get_bank_balance(){return bank_balance;}
 
+protected:
+    int some_value{10};
+    void display_something()const{}
+
 private://access specifier
     int balance{0};//variable-initialized to 0
     static int bank_balance;
