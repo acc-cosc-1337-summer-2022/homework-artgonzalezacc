@@ -27,6 +27,23 @@ void show_balance(const Account &account)
     std::cout<<"friend function: "<<account.balance<<"\n";    
 }
 
+std::ostream& operator<<(std::ostream& out, const Account& account)
+{
+    out<<"Overload << function: "<<account.balance<<"\n";
+
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, Account& account)
+{
+    int amount;
+    std::cout<<"Enter amount to withdraw: ";
+    in>>amount;
+    account.withdraw(amount);
+
+    return in;
+};
+
 //BRANCH BANK CLASS FUNCTIONS
 void BranchBank::update_balance(int b)
 {

@@ -5,7 +5,7 @@
 #include <time.h>//time
 #include<vector>
 
-using std::cout;
+using std::cout; using std::cin;
 
 int main()
 {
@@ -13,6 +13,8 @@ int main()
 	srand(time(NULL));
 	BranchBank b_bank(500);
 	Account account(50);
+	cout<<account;
+	cin>>account;
 	cout<<account.get_bank_balance()<<"\n";
 
 	b_bank.update_balance(25);
