@@ -4,5 +4,5 @@
 int CheckingAccount::get_balance()const
 {
     display_something();
-    return Account::get_balance() + 5 + some_value;
+    return Account::get_balance() + 5;
 }
