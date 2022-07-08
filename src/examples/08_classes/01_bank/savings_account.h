@@ -9,6 +9,7 @@ class SavingsAccount : public Account
 public:
     SavingsAccount() = default;
     explicit SavingsAccount(int b) : Account(b){}
+    int get_balance()const override;
 };
 
 #endif

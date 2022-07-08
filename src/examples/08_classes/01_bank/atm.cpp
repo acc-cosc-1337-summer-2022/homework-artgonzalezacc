@@ -5,14 +5,15 @@ using std::cout; using std::cin;
 
 void ATM::display_balance()
 {
-    cout<<"Your balance is : "<<accounts[account_index].get_balance()<<"\n";
+    cout<<"Your balance is : "<<
+    customers[customer_index].get_account(account_index)->get_balance()<<"\n";
 }
 
 void ATM::make_deposit()
 {
     int amount = rand() % 100 + 1;
     cout<<"Deposit amount: "<<amount<<"\n";//between 1 and 100
-    accounts[account_index].deposit(amount);
+    customers[customer_index].get_account(account_index)->deposit(amount);
 }
 
 void ATM::make_withdraw()
@@ -21,12 +22,15 @@ void ATM::make_withdraw()
     cout<<"Enter withdraw amount: ";
     cin>>amount;//what about validation?????
 
-    accounts[account_index].withdraw(amount);
+    customers[account_index].get_account(account_index)->withdraw(amount);
 }
 
 void ATM::scan_card()
 {
-    account_index = rand() % accounts.size();    
+    customer_index = rand() % customers.size();    
+    std::cout<<"Enter 1 for checking 2 for savings: ";
+    std::cin>>account_index;
+    account_index--;
 }
 
 //FREE FUNCTIONS - NOT PART OF THE ATM CLASS!!!!!!!!!!!!!!!!!!
@@ -38,7 +42,7 @@ void run_menu(ATM &atm)
 
     do
     {
-        atm.scan_card();
+        atm.scan_card();//chooses a random customer and account to work with
 
         do
         {
