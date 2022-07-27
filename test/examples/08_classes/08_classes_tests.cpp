@@ -19,7 +19,7 @@ TEST_CASE("Test savings account balance initial value is 0")
 {
 	SavingsAccount account;
 
-	REQUIRE(account.get_balance() == 0);
+	REQUIRE(account.get_balance() == 10);
 }
 
 
@@ -33,60 +33,60 @@ TEST_CASE("Test checking account balance set via constructor")
 TEST_CASE("Test Savings account deposit class function")
 {
 	SavingsAccount account(100);
-	REQUIRE(account.get_balance() == 100);
+	REQUIRE(account.get_balance() == 110);
 
 	account.deposit(50);
 
-	REQUIRE(account.get_balance() == 150);
+	REQUIRE(account.get_balance() == 160);
 }
 
 TEST_CASE("Test account withdraw class function")
 {
-	Account account(100);
-	REQUIRE(account.get_balance() == 100);
+	SavingsAccount account(100);
+	REQUIRE(account.get_balance() == 110);
 
 	account.withdraw(20);
-	REQUIRE(account.get_balance() == 80);
+	REQUIRE(account.get_balance() == 90);
 }
 
 TEST_CASE("Test account deposits and withdraws")
 {
-	Account account(100);
-	REQUIRE(account.get_balance() == 100);
+	SavingsAccount account(100);
+	REQUIRE(account.get_balance() == 110);
 
 	account.deposit(50);
-	REQUIRE(account.get_balance() == 150);
+	REQUIRE(account.get_balance() == 160);
 
 	account.withdraw(40);
-	REQUIRE(account.get_balance() == 110);
+	REQUIRE(account.get_balance() == 120);
 }
 
 TEST_CASE("Test account withdraw with negative value")
 {
-	Account account(100);
-	REQUIRE(account.get_balance() == 100);
+	SavingsAccount account(100);
+	REQUIRE(account.get_balance() == 110);
 
 	account.withdraw(-10);
-	REQUIRE(account.get_balance() == 100);
+	REQUIRE(account.get_balance() == 110);
 }
 
 TEST_CASE("Test account withdraw with amount greater than balance")
 {
-	Account account(100);
-	REQUIRE(account.get_balance() == 100);
+	SavingsAccount account(100);
+	REQUIRE(account.get_balance() == 110);
 
 	account.withdraw(120);
-	REQUIRE(account.get_balance() == 100);
+	REQUIRE(account.get_balance() == 110);
 }
 
 TEST_CASE("Test account deposit with negative amount")
 {
-	Account account(100);
-	REQUIRE(account.get_balance() == 100);
+	SavingsAccount account(100);
+	REQUIRE(account.get_balance() == 110);
 
 	account.deposit(-50);
 
-	REQUIRE(account.get_balance() == 100);	
+	REQUIRE(account.get_balance() == 110);	
 }
 
 TEST_CASE("Test random number generator")
