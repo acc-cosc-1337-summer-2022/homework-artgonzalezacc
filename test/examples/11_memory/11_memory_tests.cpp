@@ -7,7 +7,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-/*TEST_CASE("Test function reference and pointer parameter")
+TEST_CASE("Test function reference and pointer parameter")
 {
 	int num = 5, num1 = 15;
 	ref_ptr(num, &num1);
@@ -17,15 +17,15 @@ TEST_CASE("Verify Test Configuration", "verification") {
 }
 
 TEST_CASE("Verify vector size function"){
-	Vector v(3);
+	Vector<int> v(3);
 	REQUIRE(v.Size() == 3);
 }
 
 TEST_CASE("Test Vector copy instance to another Vector variable")
 {
-	Vector v1(3);
+	Vector<int> v1(3);
 	v1[0] = 5;
-	Vector v2 = v1;
+	Vector<int> v2 = v1;
 
 	REQUIRE(v1.Size() == v2.Size());
 	REQUIRE(v1[0] == 5);
@@ -38,8 +38,8 @@ TEST_CASE("Test Vector copy instance to another Vector variable")
 
 TEST_CASE("Test Vector overwrite existing Vector instance")
 {
-	Vector v1(3);
-	Vector v2(3);
+	Vector<int> v1(3);
+	Vector<int> v2(3);
 	v2 = v1;
 
 	REQUIRE(v1.Size() == v2.Size());
@@ -52,8 +52,8 @@ TEST_CASE("Test Vector overwrite existing Vector instance")
 
 TEST_CASE("Test create Vector from a std::move call")
 {
-	Vector v1(3);
-	Vector v2 = std::move(v1);
+	Vector<int> v1(3);
+	Vector<int> v2 = std::move(v1);
 	//v1 = get_vector();
 
 	//REQUIRE(v1[0] == 5);
@@ -61,27 +61,27 @@ TEST_CASE("Test create Vector from a std::move call")
 
 TEST_CASE("Test create vector from a value return function")
 {
-	Vector v1(3);
+	Vector<int> v1(3);
 	v1 = get_vector();
-}*/
+}
 
 TEST_CASE("TEst vector get size class function")
 {
-	Vector v1(3);
+	Vector<int> v1(3);
 
 	REQUIRE(v1.Size() == 3);
 }
 
 TEST_CASE("Test vector get capacity class function")
 {
-	Vector v1(3);
+	Vector<int> v1(3);
 
 	REQUIRE(v1.Capacity() == 3);
 }
 
 TEST_CASE("Test vector Reserve class function")
 {
-	Vector v1(3);
+	Vector<int> v1(3);
 
 	REQUIRE(v1.Capacity() == 3);
 
@@ -92,7 +92,7 @@ TEST_CASE("Test vector Reserve class function")
 
 TEST_CASE("Test vector push back to determine correct capacity value")
 {
-	Vector v1;
+	Vector<int> v1;
 	v1.Push_Back(4);
 	v1.Push_Back(9);
 	v1.Push_Back(10);
