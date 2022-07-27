@@ -3,7 +3,7 @@
 
 int main()
 {
-	use_dynamic_char_array();
+	
 	
 	return 0;
 }
